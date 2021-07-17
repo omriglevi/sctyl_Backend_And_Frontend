@@ -8,6 +8,5 @@ exports.scytaleAppDBSchema = new mongoose_1.Schema({
     "title": { type: String, required: true },
     "description": { type: String, required: true },
     "author": { type: String, required: true },
-    "pr_status": { type: String, required: true },
     "lables": { type: [String], required: true },
 });

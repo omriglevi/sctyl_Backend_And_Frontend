@@ -1,8 +1,9 @@
 import mongoose from 'mongoose'
 import {scytaleAppDBSchema} from '../db_schemas/scytaleDB_schema'
+import { IPr } from '../typeStructures/IPr';
 
 
 
 
 /* Were using the scema we defined for our prs obj */
-const prModel = mongoose.model('prsModel',scytaleAppDBSchema);
+export   const prModel = mongoose.model<IPr>('prsModel',scytaleAppDBSchema);
