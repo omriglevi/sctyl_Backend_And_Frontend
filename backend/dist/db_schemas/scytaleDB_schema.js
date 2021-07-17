@@ -1,12 +1,13 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.scytaleAppDBSchema = void 0;
 const mongoose_1 = require("mongoose");
-const scytaleAppDBSchema = new mongoose_1.Schema({
-    pr_number: String,
-    title: String,
-    description: String,
-    author: String,
-    status: String,
-    labels: [String],
-    creationDate: Date.now()
+exports.scytaleAppDBSchema = new mongoose_1.Schema({
+    "status": { type: String, required: true },
+    "pr_number": { type: String, required: true },
+    "title": { type: String, required: true },
+    "description": { type: String, required: true },
+    "author": { type: String, required: true },
+    "pr_status": { type: String, required: true },
+    "lables": { type: [String], required: true },
 });

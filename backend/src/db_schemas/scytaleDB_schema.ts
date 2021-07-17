@@ -1,13 +1,13 @@
 import {Schema } from 'mongoose' ;
 
 
-const scytaleAppDBSchema= new Schema({
+export const scytaleAppDBSchema= new Schema<Pr_structure>({
+    "status": {type:String , required:true},
+    "pr_number": {type:String , required:true},
+    "title": {type:String , required:true},
+    "description": {type:String , required:true},
+    "author": {type:String , required:true},
+    "pr_status": {type:String , required:true},
+    "lables": {type:[String] , required:true},
 
-pr_number : String! , 
-title: String! ,
-description : String! ,
-author:String!,
-status:String!,
-labels:[String!],
-creationDate:Date.now()
 })

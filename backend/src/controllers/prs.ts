@@ -1,3 +1,4 @@
+import { json } from 'body-parser'
 import { Request , Response} from 'express'
 
 
@@ -11,7 +12,11 @@ export const prsRouteCRUDHandler  ={
         res.status(200).json({msg:"ok ok ok Get Is fine "})
     },
     postHandler:   (req:Request,res:Response)=>{
-        res.status(200).json({msg:"ok ok ok Post Is fine "})
+        res.status(200).json(
+            {
+                "syud":req.body
+            }
+        )
 
     }
 }

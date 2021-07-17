@@ -1,4 +1,4 @@
-import { json } from 'body-parser';
+import { json,urlencoded } from 'body-parser';
 import mongoose from 'mongoose'
 import express , {Request,Response,NextFunction} from 'express'
 import prsRoutes from './routes/prs'
@@ -7,8 +7,13 @@ import prsRoutes from './routes/prs'
 const MONGODB_URI='mongodb+srv://Omri:Omri123@clusterforscytale.s7a3b.mongodb.net/myFirstDatabase?retryWrites=true&w=majority'
 
 const app=express();
+app.use(json())
+app.use(urlencoded({extended:true}))
 
-/* START  Setting up connection to our cloud DB */
+/* Connecting to DB and listening to errors and connetions.
+we could use a different approach by using if(err) in our connect statment , but our current
+configuration allows us to catch disconnecting errors in a better way
+*/
 mongoose.connect(MONGODB_URI,{
     useNewUrlParser:true , 
     useUnifiedTopology:true
@@ -19,18 +24,13 @@ mongoose.connection.on('connected', ()=>{
 mongoose.connection.on('error', (err:Error)=>{
     console.log("This error occured while trying to connect to atlas=="+err.message+'\n')
 });
-/* END of Setting up connection to our cloud DB */
+/* ==========*/
 
 
 
 
-app.use(json);
-app.use('/prs',prsRoutes) ; // Currently we are using only one route wich is /prs
-
-
+app.use('/prs',prsRoutes) ;
 app.use((err:Error , req:Request , res:Response , next:NextFunction)=>{
 res.status(500).json({msg:err.message})
 })
-
-
 app.listen(3001,()=>{console.log('listening on 3001')});
