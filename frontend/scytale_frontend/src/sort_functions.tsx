@@ -57,26 +57,14 @@ export const sortASC = (arr: Array<IPr>, sort_by: string, ascDes: string) => {
 export const filter_byFun =(arr: Array<IPr>, status:string)=>{
 
 if(status==='Draft'){
-return arr.filter((el)=>{
-    if(el.lables.includes('Draft')){
-        return el
-    }
-})
+return arr.filter((el)=>el.status==="Draft")
 }
- if(status==='Open'){
-    return arr.filter((el)=>{
-      if(el.lables.includes('Open')){
-            return el;
-      }
-    })
+ else if(status==='Open'){
+    return arr.filter((el)=> el.status==="Open")
 }
 
-if(status==='Closed'){
-    return arr.filter((el)=>{
-        if(el.lables.includes("Closed")){
-            return el ;
-        }
-    })
+else if(status==='Closed'){
+    return arr.filter((el)=> el.status==="Closed")
 }
 
 

@@ -71,18 +71,19 @@ function PrTable(props: any) {
 
   return (
     <Container>
-{/* 
+
 <Button style={{borderRadius:'15px', margin:'1px'}}
           onClick={() => {
             let d = filter_byFun(prList,"Open");
             updateStateF(d);
             triggerForceUpdate();
-            console.log(d)
+            // console.log(d)
             return;
           }}
         >
              Open Prs
             </Button>
+            {/* 
             <Button style={{borderRadius:'15px', margin:'1px'}}
           onClick={() => {
             let d = filter_byFun(prList,"Closed");

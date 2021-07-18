@@ -6,7 +6,7 @@ export default function AddPrComp(props: any) {
   const [formState, updateFormState] = useState({
     pr_num: "2",
     authoer: "omri",
-    status: "s",
+    status: "Closed",
     title: "t",
     description: "sd",
     lables: "",
