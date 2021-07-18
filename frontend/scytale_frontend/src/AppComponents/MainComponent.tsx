@@ -62,6 +62,7 @@ function PrTable(props: any) {
   const [fUpdate, hitFUpdate] = useState(true);
   const triggerForceUpdate = () => {
     hitFUpdate(!fUpdate);
+    console.log("Triggered")
   };
   useEffect(() => {
     if (prList.length < 1) {
@@ -71,38 +72,54 @@ function PrTable(props: any) {
 
   return (
     <Container>
+      <Button style={{borderRadius:'15px', margin:'1px'}} onClick={()=>{
+       updatePrList(curState)
+      }}> Reset</Button>
 
 <Button style={{borderRadius:'15px', margin:'1px'}}
           onClick={() => {
-            let d  = filter_byFun(prList,"Open");
-            updateStateF(d);
-            triggerForceUpdate();
-            console.log(d)
+            let d  = filter_byFun(curState,"Open");
+            if(d){
+              updatePrList(d)
+              console.log(d)
+              triggerForceUpdate();
+            }
+         
+            
           }}
         >
              Open Prs
             </Button>
-            {/* 
             <Button style={{borderRadius:'15px', margin:'1px'}}
           onClick={() => {
-            let d = filter_byFun(prList,"Closed");
-            updateStateF(d);
-            triggerForceUpdate();
-            return;
+            let d  = filter_byFun(curState,"Closed");
+            if(d){
+              updatePrList(d)
+              console.log(d)
+              triggerForceUpdate();
+            }
+         
+            
           }}
         >
              Closed Prs
             </Button>
+
             <Button style={{borderRadius:'15px', margin:'1px'}}
           onClick={() => {
-            let d = filter_byFun(prList,"Draft");
-            updateStateF(d);
-            triggerForceUpdate();
-            return;
+            let d  = filter_byFun(curState,"Draft");
+            if(d){
+              updatePrList(d)
+              console.log(d)
+              triggerForceUpdate();
+            }
+         
+            
           }}
         >
-            Draft
-            </Button> */}
+             Draft Prs
+            </Button>
+           
 
 
 
