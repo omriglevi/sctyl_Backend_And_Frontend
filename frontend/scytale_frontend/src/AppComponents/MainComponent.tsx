@@ -71,7 +71,7 @@ function PrTable(props: any) {
 
   return (
     <Container>
-
+{/* 
 <Button style={{borderRadius:'15px', margin:'1px'}}
           onClick={() => {
             let d = filter_byFun(prList,"Open");
@@ -95,14 +95,14 @@ function PrTable(props: any) {
             </Button>
             <Button style={{borderRadius:'15px', margin:'1px'}}
           onClick={() => {
-            let d = filter_byFun(prList,"Drafted");
+            let d = filter_byFun(prList,"Draft");
             updateStateF(d);
             triggerForceUpdate();
             return;
           }}
         >
             Draft
-            </Button>
+            </Button> */}
 
 
 
