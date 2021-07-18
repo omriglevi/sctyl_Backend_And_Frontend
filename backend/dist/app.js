@@ -7,8 +7,16 @@ const body_parser_1 = require("body-parser");
 const mongoose_1 = __importDefault(require("mongoose"));
 const express_1 = __importDefault(require("express"));
 const prs_1 = __importDefault(require("./routes/prs"));
+const cors_1 = __importDefault(require("cors"));
 const MONGODB_URI = 'mongodb+srv://Omri:Omri123@clusterforscytale.s7a3b.mongodb.net/myFirstDatabase?retryWrites=true&w=majority';
+/* Configuring Cors */
+const allowedOrigins = ['http://localhost:3000', '*'];
+const options = {
+    origin: allowedOrigins
+};
+/*  ==  */
 const app = express_1.default();
+app.use(cors_1.default(options));
 app.use(body_parser_1.json());
 app.use(body_parser_1.urlencoded({ extended: true }));
 /* Connecting to DB and listening to errors and connetions.

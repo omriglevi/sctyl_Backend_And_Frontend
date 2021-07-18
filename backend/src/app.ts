@@ -2,11 +2,18 @@ import { json,urlencoded } from 'body-parser';
 import mongoose from 'mongoose'
 import express , {Request,Response,NextFunction} from 'express'
 import prsRoutes from './routes/prs'
+import cors from 'cors'
 
 
 const MONGODB_URI='mongodb+srv://Omri:Omri123@clusterforscytale.s7a3b.mongodb.net/myFirstDatabase?retryWrites=true&w=majority'
-
+/* Configuring Cors */
+const allowedOrigins = ['http://localhost:3000','*'];
+const options: cors.CorsOptions = {
+    origin: allowedOrigins
+  };
+  /*  ==  */
 const app=express();
+app.use(cors(options));
 app.use(json())
 app.use(urlencoded({extended:true}))
 

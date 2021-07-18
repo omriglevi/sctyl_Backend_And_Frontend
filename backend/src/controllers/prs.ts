@@ -19,14 +19,16 @@ export const prsRouteCRUDHandler = {
   },
 
   postHandler: (req: Request, res: Response) => {
- const body =req.body as Pick<IPr , "author" | "description" | "lables" | "pr_number" | "status"|"title">
+ const body =req.body as Pick<IPr , "author" | "description" | "lables" | "pr_number" | "status"|"title"|"creationDate">
      let pr: IPr ={
          author:body.author,
          description:body.description,
          lables:body.lables,
          pr_number:body.pr_number,
          status:body.status,
-         title:body.title
+         title:body.title,
+         creationDate:Date.now().toString()
+         
      }
 
 

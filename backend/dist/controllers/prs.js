@@ -24,7 +24,8 @@ exports.prsRouteCRUDHandler = {
             lables: body.lables,
             pr_number: body.pr_number,
             status: body.status,
-            title: body.title
+            title: body.title,
+            creationDate: Date.now().toString()
         };
         prModel_1.prModel.create(pr, (err, doc) => {
             if (err) {
