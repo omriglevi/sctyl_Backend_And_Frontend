@@ -170,16 +170,18 @@ function PrTable(props: any) {
         </thead>
         <tbody>
           {prList.map((item) => {
+            const x= parseInt(item.creationDate);
+           var xx= new Date(x) ;
             return (
               <tr>
                 <td key={item._id}> {item._id}</td>
-                <td key ={item.author}> {item.author}</td>
-                <td key ={item.description}> {item.description}</td>
-                <td key={item.pr_number}> {item.pr_number}</td>
-                <td key={item.status}> {item.status}</td>
-                <td key={item.title}> {item.title}</td>
-                <td key={item.lables.join()}> {item.lables.join()}</td>
-                <td key={item.creationDate}> {item.creationDate}</td>
+                <td key ={item.author+Math.random()*10}> {item.author}</td>
+                <td key ={item.description+Math.random()*10}> {item.description}</td>
+                <td key={item.pr_number+Math.random()*10}> {item.pr_number}</td>
+                <td key={item.status + Math.random()*11}> {item.status}</td>
+                <td key={item.title+ Math.random()*11}> {item.title}</td>
+                <td key={ Math.random()*11 + item.lables.join()}> {item.lables.join()}</td>
+                <td key={item.creationDate}> {`${xx}`}</td>
               </tr>
             );
           })}
