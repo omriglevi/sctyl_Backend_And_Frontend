@@ -74,11 +74,10 @@ function PrTable(props: any) {
 
 <Button style={{borderRadius:'15px', margin:'1px'}}
           onClick={() => {
-            let d = filter_byFun(prList,"Open");
+            let d  = filter_byFun(prList,"Open");
             updateStateF(d);
             triggerForceUpdate();
-            // console.log(d)
-            return;
+            console.log(d)
           }}
         >
              Open Prs
@@ -173,14 +172,14 @@ function PrTable(props: any) {
           {prList.map((item) => {
             return (
               <tr>
-                <td> {item._id}</td>
-                <td> {item.author}</td>
-                <td> {item.description}</td>
-                <td> {item.pr_number}</td>
-                <td> {item.status}</td>
-                <td> {item.title}</td>
-                <td> {item.lables.join()}</td>
-                <td> {item.creationDate}</td>
+                <td key={item._id}> {item._id}</td>
+                <td key ={item.author}> {item.author}</td>
+                <td key ={item.description}> {item.description}</td>
+                <td key={item.pr_number}> {item.pr_number}</td>
+                <td key={item.status}> {item.status}</td>
+                <td key={item.title}> {item.title}</td>
+                <td key={item.lables.join()}> {item.lables.join()}</td>
+                <td key={item.creationDate}> {item.creationDate}</td>
               </tr>
             );
           })}

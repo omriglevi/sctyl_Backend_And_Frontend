@@ -79,7 +79,7 @@ const hitApiHandler = ()=>{
                 Pr_Num
               </Form.Label>
               <Col sm="10">
-                <Form.Control />
+                <Form.Control  onChange={(e)=>updateFormState({...formState,pr_num:e.target.value})}  />
               </Col>
             </Form.Group>
             <Form.Group as={Row} className="mb-3">
@@ -95,6 +95,8 @@ const hitApiHandler = ()=>{
         
     <div key={`inline-radio`} className="mb-3">
       <Form.Check
+        onChange={(e)=>onChangeHandlerRadioBtns(e.target.value)}
+
         inline
         value="Closed"
         label="Closed"
@@ -112,6 +114,8 @@ const hitApiHandler = ()=>{
         id={`inline-radio-2`}
       />
       <Form.Check
+        onChange={(e)=>onChangeHandlerRadioBtns(e.target.value)}
+
         inline
         value='Draft'
         label="Draft"
